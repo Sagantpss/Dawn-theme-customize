@@ -1,0 +1,28 @@
+{% comment %} Custom Image Section {% endcomment %}
+<section>
+  <h2>Custom image section</h2>
+  {{ section.settings.image |
+   image_url: width: 600 |
+   image_tag:
+     widths: '300, 600',
+     sizes: '(min-width: 400px) 298px, 78.75vw',
+     style: 'width: 300px' }}
+</section>
+{% schema %}
+  {
+    "name": "Custom image section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Choose Image",
+        "info": "Note:Choose best quality image and 500x500 px."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom image section"
+      }
+    ]
+  }
+{% endschema %}
