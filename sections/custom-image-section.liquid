@@ -1,7 +1,7 @@
 {% comment %} Custom Image Section {% endcomment %}
 <section>
   <h2>Custom image section</h2>
-  {% if section.settings.image != black %}
+  {% if section.settings.image != blank %}
   {{ section.settings.image | image_url: width: 600 | image_tag }}
   {% endif %}
   <!-- {{ section.settings.image |
