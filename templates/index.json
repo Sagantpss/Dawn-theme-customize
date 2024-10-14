@@ -88,6 +88,7 @@
     "custom_image_section_YACT4c": {
       "type": "custom-image-section",
       "settings": {
+        "image": "shopify://shop_images/medium-shot-kid-celebrating-christmas.jpg"
       }
     }
   },
