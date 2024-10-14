@@ -15,7 +15,7 @@
 <section>
   <h2>Custom image section</h2>
   {% if section.settings.image != blank %}
-    {% assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round %}
+    {% assign height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio | round %}
     {%- assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' -%}
     {%- capture sizes -%}
       100vw
