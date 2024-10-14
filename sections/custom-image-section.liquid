@@ -3,6 +3,12 @@
   <h2>Custom image section</h2>
   {% if section.settings.image != blank %}
   <picture>
+    <source
+   media="(max-width: 800px)"
+   srcset="
+     {{ section.settings.image2 | image_url: width: 300 }} 300w,
+     {{ section.settings.image2 | image_url: width: 600 }} 600w,
+     ">
     {{ section.settings.image 
       | image_url: width: 600 
       | image_tag : widths: '300, 600',
