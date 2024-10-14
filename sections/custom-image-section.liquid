@@ -2,12 +2,14 @@
 <section>
   <h2>Custom image section</h2>
   {% if section.settings.image != blank %}
-  {{ section.settings.image 
-    | image_url: width: 600 
-    | image_tag : widths: '300, 600',
-      sizes: '(min-width: 400px) 298px, 78.75vw',
-      style: 'width: 300px'
-  }}
+  <picture>
+    {{ section.settings.image 
+      | image_url: width: 600 
+      | image_tag : widths: '300, 600',
+        sizes: '(min-width: 400px) 298px, 78.75vw',
+        style: 'width: 300px'
+    }}
+  </picture>
   {% endif %}
 
   <!-- <img
