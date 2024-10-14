@@ -20,7 +20,7 @@
     {%- capture sizes -%}
       100vw
     {%- endcapture -%}
-  <picture>
+
    {{ section.settings.image |
     image_url: width: 3840 |
     image_tag:
@@ -28,7 +28,7 @@
       widths: widths,
       sizes: sizes,
       class: 'mobile-size-fix' }}
-  </picture>
+
   {% endif %}
 
   <img
