@@ -9,12 +9,7 @@
       style: 'width: 300px'
   }}
   {% endif %}
-  <!-- {{ section.settings.image |
-   image_url: width: 600 |
-   image_tag:
-     widths: '300, 600',
-     sizes: '(min-width: 400px) 298px, 78.75vw',
-     style: 'width: 300px' }} -->
+
   <img
     srcset="{%- if section.settings.image.width >= 165 -%}{{ section.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
       {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
