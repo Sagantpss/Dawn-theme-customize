@@ -1,14 +1,13 @@
 {% comment %} Custom Image Section {% endcomment %}
 <section>
   <h2>Custom image section</h2>
-  {{ section.settings.image | image_url: '600x' | image_tag }}
+  {{ section.settings.image | image_url: width: 600 | image_tag }}
   <!-- {{ section.settings.image |
    image_url: width: 600 |
    image_tag:
      widths: '300, 600',
      sizes: '(min-width: 400px) 298px, 78.75vw',
      style: 'width: 300px' }} -->
-  {{ section.settings.image | image_url: width: 600 | image_tag }}
 </section>
 {% schema %}
   {
