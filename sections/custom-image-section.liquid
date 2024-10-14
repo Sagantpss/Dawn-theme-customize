@@ -1,6 +1,7 @@
 {% comment %} Custom Image Section {% endcomment %}
 <section>
   <h2>Custom image section</h2>
+  {{ section.settings.image | image_url: '600x' | image_tag }}
   {{ section.settings.image | image_url: width: 600 | image_tag }}
   <!-- {{ section.settings.image |
    image_url: width: 600 |
