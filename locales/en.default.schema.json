@@ -1364,21 +1364,6 @@
           "label": "Image",
           "info": "Note:Choose best quality image and 500x500 px."
         },
-        "height": {
-          "options__1": {
-            "label": "Adapt to image"
-          },
-          "options__2": {
-            "label": "Small"
-          },
-          "options__3": {
-            "label": "Medium"
-          },
-          "options__4": {
-            "label": "Large"
-          },
-          "label": "Image height"
-        },
         "desktop_image_width": {
           "options__1": {
             "label": "Small"
@@ -1391,16 +1376,6 @@
           },
           "label": "Desktop image width",
           "info": "Image is automatically optimized for mobile."
-        },
-        "layout": {
-          "options__1": {
-            "label": "Image first"
-          },
-          "options__2": {
-            "label": "Image second"
-          },
-          "label": "Desktop image placement",
-          "info": "Image first is the default mobile layout."
         },
         "desktop_content_alignment": {
           "options__1": {
