@@ -14,7 +14,9 @@
   }
 {%- endstyle -%}
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }} page-width">
-  <h2 class="scroll-trigger animate--fade-in">Custom image section</h2>
+  <h2 class="scroll-trigger animate--fade-in">
+    {{ section.settings.title }}
+  </h2>
     <div class="image_wrapper">
       {% if section.settings.image != blank %}
         <img
