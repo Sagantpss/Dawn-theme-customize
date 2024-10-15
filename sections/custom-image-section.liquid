@@ -37,7 +37,6 @@
         class="scroll-trigger animate--fade-in"
       >
       {% if section.settings.image != blank %}
-        {% assign height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio | round %}
         {%- assign widths = '375, 550, 750, 1100, 1500' -%}
         {%- capture sizes -%}
           (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
