@@ -14,6 +14,7 @@
       "blocks": {
         "heading": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Prepare for the most festive deals of the year!",
             "heading_size": "h1"
@@ -21,6 +22,7 @@
         },
         "text_gWkRtb": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "Don't miss out on the top deals of the year!",
             "text_style": "body"
@@ -28,6 +30,7 @@
         },
         "button": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
             "button_label_1": "Shop all",
             "button_link_1": "shopify://collections/all",
@@ -44,7 +47,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/1728903506.jpg",
+        "image": "shopify://shop_images/medium-shot-kid-celebrating-christmas.jpg",
         "image_overlay_opacity": 10,
         "image_height": "large",
         "desktop_content_position": "middle-left",
