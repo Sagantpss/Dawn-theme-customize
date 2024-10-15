@@ -16,7 +16,7 @@
 <section>
   <div class="page-width">
   <h2>Custom image section</h2>
-    <div class="medias scroll-trigger animate--fade-in">
+    <div class="scroll-trigger animate--fade-in">
       <img
         srcset="
           {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
@@ -35,6 +35,7 @@
         alt="{{ section.settings.image.alt | escape }}"
         width="100%"
         height="100%"
+        class="animate--fade-in"
       >
       {% if section.settings.image != blank %}
         {% assign height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio | round %}
@@ -49,8 +50,8 @@
         image_tag:
           widths: widths,
           sizes: sizes,
-          loading: lazy,
-          class: 'mobile-size-fix' }}
+          loading: 'lazy',
+          class: 'mobile-size-fix animate--fade-in' }}
       {% endif %}
     </div>
   </div>
