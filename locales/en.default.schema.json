@@ -1356,8 +1356,13 @@
     "custom-image-section": {
       "name": "Custom image section",
       "settings": {
+        "title": {
+          "label": "Heading",
+          "default": "Image Section"
+        },
         "image": {
-          "label": "Image"
+          "label": "Image",
+          "info": "Note:Choose best quality image and 500x500 px."
         },
         "height": {
           "options__1": {

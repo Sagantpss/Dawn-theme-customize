@@ -42,15 +42,21 @@
 </div>
 {% schema %}
   {
-    "name": "Custom image section",
+    "name": "t:sections.custom-image-section.name",
     "tag": "section",
     "class": "section",
     "settings": [
       {
+        "type": "color_scheme",
+        "id": "section_color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "scheme-1"
+      },
+      {
         "type": "inline_richtext",
         "id": "title",
-        "default": "t:sections.featured-collection.settings.title.default",
-        "label": "t:sections.featured-collection.settings.title.label"
+        "default": "t:sections.custom-image-section.settings.title.default",
+        "label": "t:sections.custom-image-section.settings.title.label"
       },
       {
         "type": "select",
@@ -83,13 +89,13 @@
       {
         "type": "image_picker",
         "id": "image",
-        "label": "Choose Image",
-        "info": "Note:Choose best quality image and 500x500 px."
+        "label": "t:sections.custom-image-section.settings.title.label",
+        "info": "t:sections.custom-image-section.settings.title.info"
       }
     ],
     "presets": [
       {
-        "name": "Custom image section"
+        "name": "t:sections.custom-image-section.name"
       }
     ]
   }
