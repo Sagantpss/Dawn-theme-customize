@@ -16,7 +16,7 @@
 <section>
   <div class="page-width">
   <h2>Custom image section</h2>
-    <div class="scroll-trigger animate--fade-in">
+    <div class="image_wrapper">
       <img
         srcset="
           {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
