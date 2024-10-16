@@ -38,6 +38,40 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "menu_image_pyBDCn": {
+          "type": "menu-image",
+          "settings": {
+            "link_name": "Catalog",
+            "link_image": "shopify://shop_images/medium-shot-kid-celebrating-christmas.jpg",
+            "link_title": "200 Carbon Skis",
+            "link_url": "shopify://products/rossignol-pursuit-200-carbon-xelium-skis-xelium-110-b83-bindings-2016"
+          }
+        },
+        "menu_image_qCQDda": {
+          "type": "menu-image",
+          "settings": {
+            "link_name": "Contact",
+            "link_image": "shopify://shop_images/model-in-summer-clothes.jpg",
+            "link_title": "77 Ca Skis",
+            "link_url": "shopify://products/rossignol-experience-77-ca-xelium-skis-xelium-110-bindings-2016"
+          }
+        },
+        "menu_image_pcnNMz": {
+          "type": "menu-image",
+          "settings": {
+            "link_name": "Contact",
+            "link_image": "shopify://shop_images/happy-customer-after-successful-retail-shop.jpg",
+            "link_title": "All Collections",
+            "link_url": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "menu_image_pyBDCn",
+        "menu_image_qCQDda",
+        "menu_image_pcnNMz"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
