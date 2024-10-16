@@ -9,7 +9,13 @@
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
-        {%- if link.links != blank -%}
+        {%- assign imagesPresent = false -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.link_name == link.title  -%}
+            {%- assign imagesPresent = true -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if link.links != blank or imagesPresent -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
               <summary
@@ -65,6 +71,18 @@
                         </ul>
                       {%- endif -%}
                     </li>
+                  {%- endfor -%}
+                  {%- for block in section.blocks -%}
+                    {%- if link.title == block.settings.link_name -%}
+                      <li class="mega_menu_img">
+                        <a class="mega-menu__link" href="{{ block.settings.link_url}}">
+                          <div>
+                          {{ block.settings.link_image | image_url: width: 500  | image_tag  }} 
+                          </div>
+                          <div class="title">{{ block.settings.link_title}}</div>
+                        </a>
+                      </li> 
+                      {%- endif -%}
                   {%- endfor -%}
                 </ul>
               </div>
