@@ -1,12 +1,11 @@
 {% schema %}
 {
-  "name": "Custom Video Section",
+  "name": "Custom Video Player",
   "settings": [
     {
-      "type": "text",
+      "type": "url",
       "id": "video_url",
-      "label": "MP4 Video URL",
-      "default": "https://cdn.shopify.com/s/files/1/0000/0001/files/sample.mp4"
+      "label": "Video URL"
     }
   ],
   "presets": [
@@ -17,113 +16,79 @@
 }
 {% endschema %}
 
-<div class="video-container">
-  {% if section.settings.video_url != blank %}
-    <video id="customVideo" src="{{ section.settings.video_url }}" muted></video>
-  {% else %}
-    <p style="color:white; text-align:center; background:#000; padding:1rem;">
-      Please enter a valid MP4 video URL in the section settings.
-    </p>
-  {% endif %}
-
+<div class="custom-video-wrapper">
+  <video id="custom-video" src="{{ section.settings.video_url }}" playsinline></video>
+  
   <div class="controls">
-    <!-- Mute/Unmute -->
-    <button id="muteBtn" type="button">
-      <svg id="muteIcon" viewBox="0 0 24 24">
-        <path d="M11.553 3.064A.75.75 0 0 1 12 3.75v16.5a.75.75 0 0 1-1.255.555L5.46 16H2.75A1.75 1.75 0 0 1 1 14.25v-4.5C1 8.784 1.784 8 2.75 8h2.71l5.285-4.805a.75.75 0 0 1 .808-.13zM10.5 5.445l-4.245 3.86a.75.75 0 0 1-.505.195h-3a.25.25 0 0 0-.25.25v4.5c0 .138.112.25.25.25h3a.75.75 0 0 1 .505.195l4.245 3.86z"/>
-        <path d="M18.718 4.222a.75.75 0 0 1 1.06 0c4.296 4.296 4.296 11.26 0 15.556a.75.75 0 0 1-1.06-1.06 9.5 9.5 0 0 0 0-13.436.75.75 0 0 1 0-1.06"/>
-        <path d="M16.243 7.757a.75.75 0 1 0-1.061 1.061 4.5 4.5 0 0 1 0 6.364.75.75 0 0 0 1.06 1.06 6 6 0 0 0 0-8.485z"/>
-      </svg>
+    <button id="play-btn" aria-label="Play/Pause">
+      ▶️
     </button>
-
-    <!-- Volume Slider -->
-    <input id="volumeSlider" class="volume-slider" type="range" min="0" max="1" step="0.05" value="0.5" />
-
-    <!-- Play/Pause -->
-    <button id="playPauseBtn" type="button">
-      <svg id="playIcon" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    </button>
+    <button id="volume-up" aria-label="Volume Up">🔊+</button>
+    <button id="volume-down" aria-label="Volume Down">🔉-</button>
   </div>
 </div>
 
 <style>
-.video-container {
-  position: relative;
-  width: 320px;
-  max-width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 0 auto;
-}
-.video-container video {
-  width: 100%;
-  display: block;
-}
-.video-container .controls {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 8px;
-  box-sizing: border-box;
-}
-.video-container .controls button,
-.video-container .controls input[type="range"] {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-.video-container .controls svg {
-  width: 20px;
-  height: 20px;
-  fill: white;
-}
-.video-container .volume-slider {
-  flex-grow: 1;
-  margin: 0 8px;
-}
+  .custom-video-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  video {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .controls button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .controls button:hover {
+    background-color: #333;
+  }
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const video = document.getElementById("customVideo");
-  if (!video) return;
+  document.addEventListener('DOMContentLoaded', function () {
+    const video = document.getElementById('custom-video');
+    const playBtn = document.getElementById('play-btn');
+    const volumeUp = document.getElementById('volume-up');
+    const volumeDown = document.getElementById('volume-down');
 
-  const muteBtn = document.getElementById("muteBtn");
-  const volumeSlider = document.getElementById("volumeSlider");
-  const playPauseBtn = document.getElementById("playPauseBtn");
-  const playIcon = document.getElementById("playIcon");
-  const muteIcon = document.getElementById("muteIcon");
+    playBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playBtn.textContent = '⏸️';
+      } else {
+        video.pause();
+        playBtn.textContent = '▶️';
+      }
+    });
 
-  playPauseBtn.addEventListener("click", () => {
-    if (video.paused) {
-      video.play();
-      playIcon.innerHTML = '<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>';
-    } else {
-      video.pause();
-      playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
-    }
+    volumeUp.addEventListener('click', () => {
+      video.muted = false;
+      video.volume = Math.min(1, video.volume + 0.1);
+    });
+
+    volumeDown.addEventListener('click', () => {
+      video.volume = Math.max(0, video.volume - 0.1);
+      if (video.volume === 0) {
+        video.muted = true;
+      }
+    });
   });
-
-  muteBtn.addEventListener("click", () => {
-    video.muted = !video.muted;
-    muteIcon.innerHTML = video.muted
-      ? `<path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 5h2.79l3.86-3.83.85.35v13l-.85.33L4.29 11H1.5l-.5-.5v-5zm3.35 5.17L8 13.31V2.73L4.85 5.85 4.5 6H2v4h2.5zm9.381-4.108.707.707L13.207 8.5l1.731 1.732-.707.707L12.5 9.207l-1.732 1.732-.707-.707L11.793 8.5 10.06 6.77l.707-.707 1.733 1.73z"/>`
-      : `<path d="M11.553 3.064A.75.75 0 0 1 12 3.75v16.5a.75.75 0 0 1-1.255.555L5.46 16H2.75A1.75 1.75 0 0 1 1 14.25v-4.5C1 8.784 1.784 8 2.75 8h2.71l5.285-4.805a.75.75 0 0 1 .808-.13zM10.5 5.445l-4.245 3.86a.75.75 0 0 1-.505.195h-3a.25.25 0 0 0-.25.25v4.5c0 .138.112.25.25.25h3a.75.75 0 0 1 .505.195l4.245 3.86z"/>
-        <path d="M18.718 4.222a.75.75 0 0 1 1.06 0c4.296 4.296 4.296 11.26 0 15.556a.75.75 0 0 1-1.06-1.06 9.5 9.5 0 0 0 0-13.436.75.75 0 0 1 0-1.06"/>
-        <path d="M16.243 7.757a.75.75 0 1 0-1.061 1.061 4.5 4.5 0 0 1 0 6.364.75.75 0 0 0 1.06 1.06 6 6 0 0 0 0-8.485z"/>`;
-  });
-
-  volumeSlider.addEventListener("input", () => {
-    video.volume = volumeSlider.value;
-    video.muted = video.volume === 0;
-  });
-});
 </script>
