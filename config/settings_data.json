@@ -142,14 +142,9 @@
     },
     "content_for_index": [],
     "blocks": {
-      "286197278318599166": {
-        "type": "shopify://apps/bitlogin-social-login/blocks/app-block/9099a221-3716-4376-9c77-be195a34de99",
-        "disabled": true,
-        "settings": {}
-      },
-      "11560147490181472608": {
-        "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/app-embed/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
-        "disabled": true,
+      "18378115731771045039": {
+        "type": "shopify://apps/miniorange-otp-login-register/blocks/otp-login-popup/dba67ab6-2825-41e1-83fd-7500e426945d",
+        "disabled": false,
         "settings": {}
       }
     },
