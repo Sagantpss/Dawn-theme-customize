@@ -17,14 +17,11 @@
 {% endschema %}
 
 <div class="custom-video-wrapper">
-  <video id="custom-video" src="{{ section.settings.video_url }}" playsinline></video>
-  
+  <video id="custom-video" src="{{ section.settings.video_url }}" playsinline muted></video>
+
   <div class="controls">
-    <button id="play-btn" aria-label="Play/Pause">
-      ▶️
-    </button>
-    <button id="volume-up" aria-label="Volume Up">🔊+</button>
-    <button id="volume-down" aria-label="Volume Down">🔉-</button>
+    <button id="play-btn" aria-label="Play/Pause">▶️</button>
+    <button id="mute-btn" aria-label="Mute/Unmute">🔇</button>
   </div>
 </div>
 
@@ -66,8 +63,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     const video = document.getElementById('custom-video');
     const playBtn = document.getElementById('play-btn');
-    const volumeUp = document.getElementById('volume-up');
-    const volumeDown = document.getElementById('volume-down');
+    const muteBtn = document.getElementById('mute-btn');
 
     playBtn.addEventListener('click', () => {
       if (video.paused) {
@@ -79,16 +75,9 @@
       }
     });
 
-    volumeUp.addEventListener('click', () => {
-      video.muted = false;
-      video.volume = Math.min(1, video.volume + 0.1);
-    });
-
-    volumeDown.addEventListener('click', () => {
-      video.volume = Math.max(0, video.volume - 0.1);
-      if (video.volume === 0) {
-        video.muted = true;
-      }
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      muteBtn.textContent = video.muted ? '🔇' : '🔊';
     });
   });
 </script>
