@@ -17,16 +17,16 @@
         "padding_bottom": 36
       }
     },
-    "17521471521e920f42": {
+    "17521478269404e1bb": {
       "type": "apps",
       "blocks": {
-        "miniorange_otp_login_register_otp_login_CAx4FV": {
-          "type": "shopify://apps/miniorange-otp-login-register/blocks/otp-login/dba67ab6-2825-41e1-83fd-7500e426945d",
+        "miniorange_otp_login_register_otp_login_popup_button_bpyVWG": {
+          "type": "shopify://apps/miniorange-otp-login-register/blocks/otp-login-popup-button/dba67ab6-2825-41e1-83fd-7500e426945d",
           "settings": {}
         }
       },
       "block_order": [
-        "miniorange_otp_login_register_otp_login_CAx4FV"
+        "miniorange_otp_login_register_otp_login_popup_button_bpyVWG"
       ],
       "settings": {
         "include_margins": true
@@ -35,6 +35,6 @@
   },
   "order": [
     "main",
-    "17521471521e920f42"
+    "17521478269404e1bb"
   ]
 }
