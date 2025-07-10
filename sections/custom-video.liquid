@@ -18,8 +18,8 @@
 {% endschema %}
 
 <div class="video-container">
-  {% if settings.video_url != blank %}
-    <video id="customVideo" src="{{ settings.video_url }}" muted></video>
+  {% if section.settings.video_url != blank %}
+    <video id="customVideo" src="{{ section.settings.video_url }}" muted></video>
   {% else %}
     <p style="color:white; text-align:center; background:#000; padding:1rem;">
       Please enter a valid MP4 video URL in the section settings.
